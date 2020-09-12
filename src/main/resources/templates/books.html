@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+<h1>Product list</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Publisher</th>
+    </tr>
+    <!--  We use an iteration block here, book is just a variable we create to use in our iteration.  -->
+    <tr th:each="book : ${books}">
+        <!--    123, ... are what we call natural values, when you open this in chrome that is what will get shown    -->
+        <td th:text="${book.id}">123</td>
+        <td th:text="${book.title}">Spring in Action</td>
+        <!--    Thymeleaf will use the getters to get our properties: book.getPublisher().getName()    -->
+        <td th:text="${book.publisher.name}">Wrox</td>
+    </tr>
+</table>
+
+</body>
+</html>
